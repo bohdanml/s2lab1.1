@@ -1,53 +1,28 @@
 #include "number.h"
-#include <iostream>
 
-using namespace std;
+Number::Number() : first(0), second(0.0) {}
 
-Number::Number() {
-    first = 0.0;
-    second = 0.0;
-}
-
-void Number::setFirst(double value) {
-    first = value;
-}
-
-double Number::getFirst() const {
-    return first;
-}
-
-void Number::setSecond(double value) {
-    second = value;
-}
-
-double Number::getSecond() const {
-    return second;
-}
-
-void Number::init() {
-    cout << "Enter the first value: ";
-    cin >> first;
-    cout << "Enter the second value: ";
-    cin >> second;
-
+void Number::Init(int first, double second) {
     if (second < 0) {
-        cout << "Error: Second value must be non-negative." << endl;
-        first = 0.0;
-        second = 0.0;
+        std::cerr << "Error: second value must be non-negative.\n";
+        exit(EXIT_FAILURE);
     }
+    this->first = first;
+    this->second = second;
+}
+
+void Number::Read() {
+    std::cout << "Enter the first part: ";
+    std::cin >> first;
+    std::cout << "Enter the second part: ";
+    std::cin >> second;
 }
 
 void Number::Display() const {
-    cout << "First: " << first << endl;
-    cout << "Second: " << second << endl;
+    std::cout << "Number: " << first << ";" << second << std::endl;
 }
 
-void Number::multiply(double multiplier) {
-    if (multiplier != 0) {
-        first *= multiplier;
-        second *= multiplier;
-    }
-    else {
-        cout << "Error: Multiplier cannot be zero." << endl;
-    }
+void Number::multiply(double factor) {
+    first *= factor;
+    second *= factor;
 }
