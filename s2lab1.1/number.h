@@ -1,21 +1,29 @@
 #pragma once
 
-#define NUMBER_H
+#include <iostream>
 
 class Number {
 private:
-    double first;
+    int first;
     double second;
 
 public:
     Number();
-    void setFirst(double value);
-    double getFirst() const;
-    void setSecond(double value);
-    double getSecond() const;
-    void init();
+    void Init(int first, double second);
+    void Read();
     void Display() const;
-    void multiply(double multiplier);
+    void multiply(double factor);
+
+    int getFirst() const { return first; }
+    double getSecond() const { return second; }
+
+    void setSecond(double newSecond) {
+        if (newSecond < 0) {
+            std::cerr << "Error: second value must be non-negative.\n";
+            exit(EXIT_FAILURE);
+        }
+        second = newSecond;
+    }
 };
 
 
