@@ -1,19 +1,17 @@
-﻿#include <iostream>
+#include <iostream>
 #include "number.h"
 
-using namespace std;
-
 int main() {
-    Number num;
-    num.init(); // з клавіатури
-    num.Display(); 
+    Number num1;
+    num1.Read();
+    num1.Display();
+
+    double factor;
+    std::cout << "Enter the factor for multiplication: ";
+    std::cin >> factor;
+    num1.multiply(factor);
+    num1.Display();
 
     
-    double multiplier;
-    cout << "Enter the multiplier: ";
-    cin >> multiplier;
-    num.multiply(multiplier);
-    num.Display(); //на екран після множ
-
     return 0;
 }
